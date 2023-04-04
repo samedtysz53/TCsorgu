@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model SearchModel;
+<link rel="stylesheet" href="~/css/bootstrap.min.css" />
+<form asp-action="Index" method="POST">
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+          
+                <div class="bg-body">
+                 <input asp-for="TC" placeholder="TC sorgu" class="form-control" />
+                </div>
+                <div class="bg-body mt-1">
+                    <input asp-for="Name" placeholder="ad" class="form-control" />
+                </div>
+                <div class="bg-body mt-1">
+                    <input asp-for="surname" placeholder="soyadı" class="form-control" />
+                </div>
+                <div class="bg-body mt-1">
+                    <input asp-for="year" placeholder="time" class="form-control" />
+                </div>
+        </div>
+        <div class="col-12 mt-3">
+           
+                <div class="bg-body">
+                   <input type="submit" value="Ara" class="btn btn-success" />
+                </div>
+             
+        </div>
+    </div>
+</div>
+</form>
