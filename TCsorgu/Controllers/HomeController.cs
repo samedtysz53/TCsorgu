@@ -27,9 +27,15 @@ namespace TCsorgu.Controllers
         public IActionResult Index(SearchModel search)
         {
          //  Repository.addList(search);
-
-            kontrol(search);
-            return View("sonuc",search);
+         if(ModelState.IsValid) 
+            {
+                kontrol(search);
+                return View("sonuc", search);
+            }
+            else {
+                return View(search);
+            }
+         
         }
 
         public IActionResult sonuc() 
@@ -43,7 +49,7 @@ namespace TCsorgu.Controllers
            
             bool dogrulamaSonucu = false;
             var mernisClient = new ServiceReference1.KPSPublicSoapClient(EndpointConfiguration.KPSPublicSoap);
-            var tcKimlikDogrulamaServisResponse = mernisClient.TCKimlikNoDogrulaAsync(long.Parse(searchModel.TC), searchModel.Name, searchModel.surname, searchModel.year).GetAwaiter().GetResult();
+            var tcKimlikDogrulamaServisResponse = mernisClient.TCKimlikNoDogrulaAsync(long.Parse(searchModel.TC), searchModel.Name, searchModel.surname, int.Parse(searchModel.year)).GetAwaiter().GetResult();
             dogrulamaSonucu = tcKimlikDogrulamaServisResponse.Body.TCKimlikNoDogrulaResult;
              searchModel.İsChecked = dogrulamaSonucu;
              
