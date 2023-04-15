@@ -4,12 +4,15 @@
 @model SearchModel;
 <link rel="stylesheet" href="~/css/bootstrap.min.css" />
 <form asp-action="Index" method="POST">
+    <div asp-validation-summary="All"></div>
 <div class="container">
     <div class="row">
         <div class="col-12">
           
                 <div class="bg-body">
+                  
                  <input asp-for="TC" placeholder="TC sorgu" class="form-control" />
+                
                 </div>
                 <div class="bg-body mt-1">
                     <input asp-for="Name" placeholder="ad" class="form-control" />
@@ -18,7 +21,7 @@
                     <input asp-for="surname" placeholder="soyadı" class="form-control" />
                 </div>
                 <div class="bg-body mt-1">
-                    <input asp-for="year" placeholder="time" class="form-control" />
+                    <input asp-for="year" placeholder="yıl" class="form-control" />
                 </div>
         </div>
         <div class="col-12 mt-3">
